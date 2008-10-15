@@ -34,7 +34,28 @@ Each node has these fields:
     number of times it occurred (in ECTOR case, how many times it appeared in user's utterance).
   - type:
     what type of node it is (depends on the application). For ECTOR, they can be "token", "sentence", "sentiment", "expression", "utterer", "label", "file", .... See NodeType.
+  - state (AV):
+    the ActivationValue of the node, within a whole ConceptNetworkState.
 
 = Link =
 
-...
+Each ConceptNetwork link "belongs" to a node, from which it comes. Its is directed to another node, and has following fields:
+
+  - node
+    the node pointed by this link
+  - weight
+    the influence that the departure node has on the arrival node, that one can also see as a conceptual proximity of the two related nodes.
+  - label
+    optional label node, turning the link into a labeled link
+
+The next figure shows an a minimal Concept Network sample, where the birthday node is completely activated (100%). This node is linked to cake, whose activation value is zero. This link's type is eat, and is weight 95%. This network is an abstract representation of the fact that for an anniversary, one often eats a cake.
+{{{
+/----------------\                             /--------------\
+|   S: birthday  |                             |    S: cake   |
++----------------+                             +--------------+
+| CI:  80        |     /-----------------\     | CI: 70       |
+| AV: 100 %      +-----+ T: eat | W: 95% +---->+ AV:  0%      |
+| DR:   2        |     \-----------------/     | DR:  5       |
+\----------------/                             \--------------/
+}}}
+Like in neural networks, the activation value from birthday will be propagated to cake, thanks to the ActivationPropagation mechanism.
