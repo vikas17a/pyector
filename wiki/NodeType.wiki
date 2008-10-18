@@ -1,0 +1,13 @@
+#summary What is a Concept Network Node's Type?
+#labels Phase-Design
+
+= Introduction =
+
+Each ConceptNetwork Node has a _type_, which determines its decay rate.
+
+
+= Details =
+
+Here are the different types:
+
+  - 
