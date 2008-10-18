@@ -39,7 +39,7 @@ Each node has these fields:
 
 = Link =
 
-Each ConceptNetwork link "belongs" to a node, from which it comes. Its is directed to another node, and has following fields:
+Each ConceptNetwork link comes from node. Its is directed to another node, and has following fields:
 
   - node
     the node pointed by this link
