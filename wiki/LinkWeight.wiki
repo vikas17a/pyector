@@ -12,3 +12,6 @@ When the link is not labeled, the formula is simple:
 
 _weight,,ij,,_ = _co-occ,,ij,,_ / _occ,,i,,_
 
+When the link is labeled (say, by node _l_):
+
+_weight,,ij,,_ = ( 1 - _co-occ,,ij,,_ / _occ,,i,,_ ) x _AV,,l,,_ / 100
