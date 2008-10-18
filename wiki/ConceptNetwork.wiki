@@ -53,9 +53,8 @@ The next figure shows an a minimal Concept Network sample, where the birthday no
 /----------------\                             /--------------\
 |   S: birthday  |                             |    S: cake   |
 +----------------+                             +--------------+
-| CI:  80        |     /-----------------\     | CI: 70       |
+| Ty: token      |     /-----------------\     | Ty: token    |
 | AV: 100 %      +-----+ T: eat | W: 95% +---->+ AV:  0%      |
-| DR:   2        |     \-----------------/     | DR:  5       |
-\----------------/                             \--------------/
+\----------------/     \-----------------/     \--------------/
 }}}
 Like in neural networks, the activation value from birthday will be propagated to cake, thanks to the ActivationPropagation mechanism.
