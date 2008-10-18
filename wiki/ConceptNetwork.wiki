@@ -32,7 +32,7 @@ Each node has these fields:
     it contains the symbolic information. 
   - occurrence (occ):
     number of times it occurred (in ECTOR case, how many times it appeared in user's utterance).
-  - type:
+  - type (Ty):
     what type of node it is (depends on the application). For ECTOR, they can be "token", "sentence", "sentiment", "expression", "utterer", "label", "file", .... See NodeType.
   - state (AV):
     the ActivationValue of the node, within a whole ConceptNetworkState.
