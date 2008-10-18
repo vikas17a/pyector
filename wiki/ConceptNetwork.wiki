@@ -44,7 +44,7 @@ Each ConceptNetwork link comes from node. Its is directed to another node, and h
   - node
     the node pointed by this link
   - weight
-    the influence that the departure node has on the arrival node, that one can also see as a conceptual proximity of the two related nodes.
+    the influence that the departure node has on the arrival node, that one can also see as a conceptual proximity of the two related nodes. This LinkWeight is computed, according to the incoming node's occurrence and the co-occurrence of the two nodes.
   - label
     optional label node, turning the link into a labeled link
 
