@@ -11,11 +11,11 @@ A concept is a set of nodes in the Concept Network, strongly bound together and 
 
 {{{
                    ###########                  ######
-                  ## Kohonen ###                ######  Neural Network Node
+                  ## Kohonen ###                ######  Neural Network concept
 ~~~~~~~~~~  ############|################       ######
 ~ Markov------network ##|####### Widrow ###
  ~~|~~~~~~   ##|###\####|#######/######\#####   ~~~~~~
-~~~|~~~~~~~~~~~|~~##\###|##/---+ ##### Hoff #   ~~~~~~  Markov Network node
+~~~|~~~~~~~~~~~|~~##\###|##/---+ ##### Hoff #   ~~~~~~  Markov Network concept
 ~ HMM-------hidden # neural-----------/#####    ~~~~~~
 ~~~~~~~~~~~~~~~~~~ #######################
                                                 ------  Links
