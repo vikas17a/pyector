@@ -9,3 +9,4 @@ All that could be useful to ECTOR.
 = Freewares =
 
   * Several French NLP programs: http://lia.univ-avignon.fr/fileadmin/documents/Users/Intranet/chercheurs/bechet/download_fred.html
+  * The AsciiDoc page: http://www.methods.co.nz/asciidoc/ (maybe useful to generate some docs, using DocBook tools).
