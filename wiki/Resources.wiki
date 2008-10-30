@@ -14,3 +14,4 @@ All that could be useful to ECTOR.
 = Scientific articles = 
 
   * Parameterized facial expression synthesis based on MPEG-4  : http://www.image.ece.ntua.gr/php/pub_details.php?code=190
+  * Réalisation d’un système de comportement intelligent, intentionnel et autonome avec production d’émotions destiné à divers types de robots (in French): http://automatesintelligent.blog.lemonde.fr/automatesintelligent/2005/07/ralisation_dun_.html
