@@ -11,6 +11,6 @@ All that could be useful to ECTOR.
   * Several French NLP programs: http://lia.univ-avignon.fr/fileadmin/documents/Users/Intranet/chercheurs/bechet/download_fred.html
   * The AsciiDoc page: http://www.methods.co.nz/asciidoc/ (maybe useful to generate some docs, using DocBook tools).
 
-= Scientifical articles = 
+= Scientific articles = 
 
   * Parameterized facial expression synthesis based on MPEG-4  : http://www.image.ece.ntua.gr/php/pub_details.php?code=190
