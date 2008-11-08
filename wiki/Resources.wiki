@@ -7,6 +7,7 @@ All that could be useful to ECTOR.
 
 = Programming =
   * Code Like a Pythonista: Idiomatic Python: http://python.net/~goodger/projects/pycon/2007/idiomatic/
+  * Voice recognition and speech synthesis python library (for XP+): http://code.google.com/p/pyspeech/
 
 = Freewares =
 
