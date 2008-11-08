@@ -1,5 +1,5 @@
 #summary Functionalities of the ConceptNetwork module
-#labels Phase-Support
+#labels Phase-Support,Featured
 
 = Introduction =
 
