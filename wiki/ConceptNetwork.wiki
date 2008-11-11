@@ -3,7 +3,7 @@
 
 = Introduction =
 
-A Concept Network is a net made of nodes and weighted links between them. It can be wholy connected.
+A Concept Network is a net made of nodes and weighted links between them. It can be wholly connected.
 
 = A concept =
 
