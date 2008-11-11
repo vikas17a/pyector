@@ -1,0 +1,119 @@
+#summary Manual of the Ector program.
+#labels Phase-Deploy,Featured
+
+= Introduction =
+
+Ector.py is the python module which contains the Ector class, but also the main program to use Ector.
+
+This page explains how to use this program.
+
+
+= Run it =
+
+src/Ector.py is to be launched by typing this (provided that Python 2.5+ is installed on your system) in a shell, in the root directory of the pyector project:
+{{{
+python src/Ector.py
+}}}
+
+== Options ==
+There are several options you can use.
+
+Here is the synopsis of the command (version 0.2):
+{{{
+python Ector.py [-p username=User][-n botname=Ector][-l logfilepath=ector.log][-h]
+}}}
+
+=== p --person ===
+This option gives the user name to Ector.
+It is the name under which you are recognized by Ector.
+It will be used to create a file `username_state.pkl` in which it will save the last subjects you talk about (to simplify).
+
+When you talk to Ector, you are named `username`, and nothing else. Don't use other pseudos or nicknames.
+The username is displayed before the prompt, so that you always know what's your name ;)
+
+By default, it is *`User`*.
+
+You can always change this name during the interactive session by using the `@person` command:
+{{{
+User>@person Bill
+Bill>
+}}}
+
+=== n --name ===
+You can change the name of the bot, but its default name will be *`Ector`*.
+The name you give is capitalized.
+
+=== l --log ===
+You can change the file in which the log is written.
+By default, the file is `ector.log` and is saved in the current directory (from where you launch Ector).
+
+This is the same as the `@log` command.
+
+=== h --help ===
+The help option reminds the usage of the program:
+{{{
+$python src/Ector.py -h
+Usage: Ector.py [-p username][-n botname=Ector][-v|-q][-l logfilepath=ector.log]
+[-s|-g][-h]
+
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -p USERNAME, --person=USERNAME
+                        set the name of the utterer
+  -n BOTNAME, --name=BOTNAME
+                        set the name of the bot
+  -v                    say all that you can say
+  -q                    shut up!
+  -l LOGNAME, --log=LOGNAME
+                        log the dialogue in log file
+}}}
+Although some options are already present, they are not functional: -v, -q are not applicable, as Ector does not answer, even in version 0.2.
+
+
+== Use it ==
+Once you have launch the program, you get some license and copyright information:
+{{{
+$ python src/Ector.py
+pyECTOR version 0.2, Copyright (C) 2008 Francois PARMENTIER
+pyECTOR comes with ABSOLUTELY NO WARRANTY; for details type `@show w'.
+This is free software, and you are welcome to redistribute it
+under certain conditions; type `@show c' for details.
+@help gives a basic help on pyECTOR commands.
+User>
+}}}
+
+From there, you can either type sentences you want Ector to learn, or use some commands.
+Let's see these commands.
+
+=== @help ===
+Typing `@help`, then enter will display all available commands:
+{{{
+User>@help
+You can just start typing phrases.
+But there are some commands you can use:
+ - @usage     : print the options of the Ector.py command
+ - @quit      : quit
+ - @exit      : quit
+ - @bye       : quit
+ - @person    : change the utterer name (like -p)
+ - @name      : change the bot's name (like -n)
+ - @version   : give the current version
+ - @write     : save Ector's Concept Network and state
+ - @shownodes : show the nodes of the Concept Network
+ - @showlinks : show the links of the Concept Network
+ - @log [file]: log the entries in the file (no file turns off the logging)
+ - @status    : show the status of Ector (Concept Network, states)
+User>
+}}}
+
+=== @usage ===
+Usage is the same than `-h, --help` option. It gives the synopsis of the program.
+
+=== @quit, @exit, @bye ===
+`@quit`, `@exit`, and `@bye` are the same command: it is the only means to quit Ector.
+
+*Warning*: at this point, if you did not save the ConceptNetwork (using `@write`), all you said since the last save will be lost!
+
+
+To be continued...
