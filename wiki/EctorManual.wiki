@@ -115,5 +115,54 @@ Usage is the same than `-h, --help` option. It gives the synopsis of the program
 
 *Warning*: at this point, if you did not save the ConceptNetwork (using `@write`), all you said since the last save will be lost!
 
+=== @person ===
+The `@person` command let you change your name in the course of the interactive session:
+{{{
+User>@person Bill
+Bill>
+}}}
+
+*Warning*: at this point, if you did not save, Ector won't remember your last conversation state the next time you return as `User`.
+
+=== @name ===
+The `@name` command let you change the name of the bot, so that when you say this new name, the bot knows it is him.
+
+*Tip*: don't use this command too much, except if you want to call the bot another name than "Ector".
+
+=== @version ===
+Gives the current version of the program. :)
+
+=== @write ===
+Writes the ConceptNetwork in `cn.pkl`, in the current directory, *and* the ConceptNetworkState in `username_state.pkl`, in the same directory.
+
+=== @shownodes ===
+This command displays the nodes of the ConceptNetwork.
+
+This won't display anything unless there are nodes in the ConceptNetwork.
+A simple manner to add nodes, is to talk to Ector, naturally.
+
+Example:
+{{{
+User>Hi Ector, how are you?
+User>@shownodes
+       how (   token): 1 (0,1,0)
+        Hi (   token): 1 (1,0,0)
+Hi @bot@, how are you? (sentence): 1 (1)
+       bot (   token): 1 (0,1,0)
+         , (   token): 1 (0,1,0)
+      User ( utterer): 1 (2008/11/11)
+         ? (   token): 1 (0,0,1)
+       are (   token): 1 (0,1,0)
+       you (   token): 1 (0,1,0)
+User>
+}}}
+
+*Warning*: this could overwhelm the screen, if your ConceptNetwork is already big!
+
+*Note*: at the launch, Ector try to read the `cn.pkl` file. If you already wrote it, the ConceptNetwork shall not be empty.
+
+=== @showlinks ===
+=== @log ===
+=== @status ===
 
 To be continued...
