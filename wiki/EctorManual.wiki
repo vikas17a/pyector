@@ -136,7 +136,7 @@ Gives the current version of the program. :)
 Writes the ConceptNetwork in `cn.pkl`, in the current directory, *and* the ConceptNetworkState in `username_state.pkl`, in the same directory.
 
 === @shownodes ===
-This command displays the nodes of the ConceptNetwork.
+This command displays the nodes of the ConceptNetwork, as in the ConceptNetworkModule.
 
 This won't display anything unless there are nodes in the ConceptNetwork.
 A simple manner to add nodes, is to talk to Ector, naturally.
@@ -162,7 +162,72 @@ User>
 *Note*: at the launch, Ector try to read the `cn.pkl` file. If you already wrote it, the ConceptNetwork shall not be empty.
 
 === @showlinks ===
-=== @log ===
-=== @status ===
+This command displays the links of the ConceptNetwork, like in ConceptNetworkModule.
 
-To be continued...
+Though it is useful to debug and understand how Ector works, you should not use it, as the output is long.
+
+Example:
+{{{
+User>Hi Ector, how are you?
+User>@showlinks
+       bot ------(100)-------> Hi @bot@, how are you?
+         , ------(100)------->        how
+       how ------(100)------->        are
+Hi @bot@, how are you? ------(100)------->          ,
+       how ------(100)-------> Hi @bot@, how are you?
+Hi @bot@, how are you? ------(100)------->         Hi
+        Hi ------(100)------->        bot
+Hi @bot@, how are you? ------(100)------->        you
+       are ------(100)-------> Hi @bot@, how are you?
+         ? ------(100)-------> Hi @bot@, how are you?
+Hi @bot@, how are you? ------(100)------->          ?
+Hi @bot@, how are you? ------(100)------->        bot
+        Hi ------(100)-------> Hi @bot@, how are you?
+Hi @bot@, how are you? ------(100)------->        are
+       bot ------(100)------->          ,
+       are ------(100)------->        you
+         , ------(100)-------> Hi @bot@, how are you?
+       you ------(100)-------> Hi @bot@, how are you?
+Hi @bot@, how are you? ------(100)------->        how
+      User ------(100)-------> Hi @bot@, how are you?
+Hi @bot@, how are you? ------(100)------->       User
+       you ------(100)------->          ?
+User>
+}}}
+
+=== @log ===
+This command change the way the log is taken, in two manners:
+
+  # change the file in which the log is automatically written
+  # stop the logging, giving no filename, or using `@logoff`
+
+Example:
+{{{
+User>@log
+Log off (ector.log)
+}}}
+The logging off display the last log file name.
+
+To log on, or change the name of the log:
+{{{
+User>@log test.log
+Log file: test.log
+}}}
+
+=== @status ===
+The status command display the nodes of the ConceptNetwork, and the name of the states that were created:
+
+{{{
+User>@status
+       how (   token): 1 (0,1,0)
+        Hi (   token): 1 (1,0,0)
+Hi @bot@, how are you? (sentence): 1 (1)
+       bot (   token): 1 (0,1,0)
+         , (   token): 1 (0,1,0)
+      User ( utterer): 1 (2008/11/11)
+         ? (   token): 1 (0,0,1)
+       are (   token): 1 (0,1,0)
+       you (   token): 1 (0,1,0)
+States (1)
+	User
+}}}
