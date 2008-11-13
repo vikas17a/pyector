@@ -1,6 +1,8 @@
 #summary Manual of the Ector program.
 #labels Phase-Deploy,Featured
 
+See the Wiki for [http://code.google.com/p/pyector/source/browse/trunk/pyector/doc/txt/EctorManual.txt the last version of this manual].
+
 = Introduction =
 
 Ector.py is the python module which contains the Ector class, but also the main program to use Ector.
