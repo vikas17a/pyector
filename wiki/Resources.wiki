@@ -24,4 +24,5 @@ All that could be useful to ECTOR.
   * Structures sémantiques et pragmatiques pour la modélisation de la cohérence dans des dialogues finalisés / Semantic and Pragmatic structures for modelling coherence in task-oriented dialogues : http://tel.archives-ouvertes.fr/tel-00333102/fr/
 
 = pyECTOR articles =
-  * [http://hachis.viabloga.com/news/pyector-0-1-est-sorti pyECTOR 0.1 est sorti] (in French)
+  * [http://hachis.viabloga.com/news/pyector-0-2-est-sorti pyECTOR 0.2 est sorti!] (in French too)
+  * [http://hachis.viabloga.com/news/pyector-0-1-est-sorti pyECTOR 0.1 est sorti!] (in French)
