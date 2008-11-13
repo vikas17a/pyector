@@ -9,6 +9,7 @@ All that could be useful to ECTOR.
   * Code Like a Pythonista: Idiomatic Python: http://python.net/~goodger/projects/pycon/2007/idiomatic/
   * Voice recognition and speech synthesis python library (for XP+): http://code.google.com/p/pyspeech/
   * How to Find or Validate an Email Address: http://www.regular-expressions.info/email.html
+  * MediaWiki API http://www.mediawiki.org/wiki/API (if one wants to feed Ector with Wikipedia data)
 
 = Freewares =
 
