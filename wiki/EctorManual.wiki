@@ -1,5 +1,6 @@
 #summary Manual of the Ector program.
 #labels Phase-Deploy,Featured
+<wiki:toc />
 
 See the Wiki for [http://code.google.com/p/pyector/source/browse/trunk/pyector/doc/txt/EctorManual.txt the last version of this manual].
 
