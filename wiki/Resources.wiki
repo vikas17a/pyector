@@ -12,6 +12,7 @@ All that could be useful to ECTOR.
 == MediaWiki ==
   * MediaWiki API http://www.mediawiki.org/wiki/API (if one wants to feed Ector with Wikipedia data)
   * PyWikipediaBot http://pywikipediabot.sourceforge.net/ http://sourceforge.net/projects/pywikipediabot/
+  * EasyInstall http://peak.telecommunity.com/DevCenter/EasyInstall
 
 = Freewares =
 
