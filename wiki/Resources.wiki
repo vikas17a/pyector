@@ -15,6 +15,7 @@ All that could be useful to ECTOR.
   * EasyInstall http://peak.telecommunity.com/DevCenter/EasyInstall
   * Python Eggs http://peak.telecommunity.com/DevCenter/PythonEggs
   * NetworkX http://networkx.lanl.gov/ (maybe useful to use this instead of own ConceptNetwork ?)
+  * What's new in Python 3.0 ? http://docs.python.org/3.0/whatsnew/3.0.html
 
 = Freewares =
 
