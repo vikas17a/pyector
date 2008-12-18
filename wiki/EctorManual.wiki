@@ -23,7 +23,7 @@ There are several options you can use.
 
 Here is the synopsis of the command (version 0.2):
 {{{
-python Ector.py [-p username=User][-n botname=Ector][-l logfilepath=ector.log][-h]
+python Ector.py [-p username=User][-n botname=Ector][-l logfilepath=ector.log][-s|-g][-h]
 }}}
 
 === p --person ===
@@ -70,6 +70,9 @@ Options:
   -q                    shut up!
   -l LOGNAME, --log=LOGNAME
                         log the dialogue in log file
+  -s, --sentence        set sentence reply mode on
+  -g, --generate        set generate reply mode on
+  -d, --debug           set debug mode on
 }}}
 Although some options are already present, they are not functional: -v, -q are not applicable, as Ector does not answer, even in version 0.2.
 
@@ -78,7 +81,7 @@ Although some options are already present, they are not functional: -v, -q are n
 Once you have launch the program, you get some license and copyright information:
 {{{
 $ python src/Ector.py
-pyECTOR version 0.2, Copyright (C) 2008 Francois PARMENTIER
+pyECTOR version 0.4, Copyright (C) 2008 Francois PARMENTIER
 pyECTOR comes with ABSOLUTELY NO WARRANTY; for details type `@show w'.
 This is free software, and you are welcome to redistribute it
 under certain conditions; type `@show c' for details.
@@ -107,6 +110,7 @@ But there are some commands you can use:
  - @showlinks : show the links of the Concept Network
  - @log [file]: log the entries in the file (no file turns off the logging)
  - @status    : show the status of Ector (Concept Network, states)
+ - @debug [ON|OFF]: set the debug mode on or off
 User>
 }}}
 
@@ -114,6 +118,8 @@ User>
 Usage is the same than `-h, --help` option. It gives the synopsis of the program.
 
 === @quit, @exit, @bye ===
+
+
 `@quit`, `@exit`, and `@bye` are the same command: it is the only means to quit Ector.
 
 *Warning*: at this point, if you did not save the ConceptNetwork (using `@write`), all you said since the last save will be lost!
@@ -147,13 +153,14 @@ A simple manner to add nodes, is to talk to Ector, naturally.
 Example:
 {{{
 User>Hi Ector, how are you?
+Ector> Hi User, how are you?
 User>@shownodes
        how (   token): 1 (0,1,0)
         Hi (   token): 1 (1,0,0)
-Hi @bot@, how are you? (sentence): 1 (1)
-       bot (   token): 1 (0,1,0)
+Hi @bot@, how are you? (sentence): 1 (0)
          , (   token): 1 (0,1,0)
-      User ( utterer): 1 (2008/11/11)
+     @bot@ (   token): 1 (0,1,0)
+      User ( utterer): 1 (2008/12/11)
          ? (   token): 1 (0,0,1)
        are (   token): 1 (0,1,0)
        you (   token): 1 (0,1,0)
@@ -172,31 +179,158 @@ Though it is useful to debug and understand how Ector works, you should not use 
 Example:
 {{{
 User>Hi Ector, how are you?
+Ector> Hi User, how are you?
 User>@showlinks
-       bot ------(100)-------> Hi @bot@, how are you?
-         , ------(100)------->        how
-       how ------(100)------->        are
-Hi @bot@, how are you? ------(100)------->          ,
-       how ------(100)-------> Hi @bot@, how are you?
-Hi @bot@, how are you? ------(100)------->         Hi
-        Hi ------(100)------->        bot
-Hi @bot@, how are you? ------(100)------->        you
-       are ------(100)-------> Hi @bot@, how are you?
-         ? ------(100)-------> Hi @bot@, how are you?
-Hi @bot@, how are you? ------(100)------->          ?
-Hi @bot@, how are you? ------(100)------->        bot
-        Hi ------(100)-------> Hi @bot@, how are you?
-Hi @bot@, how are you? ------(100)------->        are
-       bot ------(100)------->          ,
-       are ------(100)------->        you
-         , ------(100)-------> Hi @bot@, how are you?
-       you ------(100)-------> Hi @bot@, how are you?
-Hi @bot@, how are you? ------(100)------->        how
-      User ------(100)-------> Hi @bot@, how are you?
-Hi @bot@, how are you? ------(100)------->       User
-       you ------(100)------->          ?
+Hi @bot@, how are you? ------(100, 1)------->          ,
+     @bot@ ------(100, 1)-------> Hi @bot@, how are you?
+         , ------(100, 1)-------> Hi @bot@, how are you?
+Hi @bot@, how are you? ------(100, 1)------->        how
+       how ------(100, 1)-------> Hi @bot@, how are you?
+       how ------(100, 1)------->        are
+        Hi ------(100, 1)------->      @bot@
+Hi @bot@, how are you? ------(100, 1)------->        you
+         , ------(100, 1)------->        how
+Hi @bot@, how are you? ------(100, 1)------->      @bot@
+       you ------(100, 1)-------> Hi @bot@, how are you?
+        Hi ------(100, 1)-------> Hi @bot@, how are you?
+      User ------(100, 1)-------> Hi @bot@, how are you?
+     @bot@ ------(100, 1)------->          ,
+Hi @bot@, how are you? ------(100, 1)------->       User
+         ? ------(100, 1)-------> Hi @bot@, how are you?
+       you ------(100, 1)------->          ?
+       are ------(100, 1)------->        you
+       are ------(100, 1)-------> Hi @bot@, how are you?
+Hi @bot@, how are you? ------(100, 1)------->          ?
+Hi @bot@, how are you? ------(100, 1)------->        are
+Hi @bot@, how are you? ------(100, 1)------->         Hi
 User>
 }}}
+
+=== @showstate ===
+This command displays the state of the nodes of the ConceptNetwork,
+corresponding to the utterer, like in ConceptNetworkModule.
+
+NOTE: Though it is useful to debug and understand how Ector works, you
+should not use it, as the output is long.
+
+Example:
+{{{
+User>Hi Ector, how are you?
+Ector >Hi User, how are you?
+User>@showstate
+oldav	av	age	Node
+97	93	2	how(token)
+97	90	2	Hi(token)
+92	84	2	Hi @bot@, how are you?(sentence)
+97	93	2	,(token)
+97	90	2	@bot@(token)
+82	65	2	User(utterer)
+97	93	2	?(token)
+97	90	2	are(token)
+97	93	2	you(token)
+}}}
+
+=== @cleanstate ===
+This command, mainly aimed at debugging, can be used to clean the state
+from non-activated nodes. It is much more readable when @showstate
+display fewer nodes.
+
+Example:
+{{{
+User>But you don't have a mouth!
+Ector> Don't have a mouth!
+User>@showstate
+oldav	av	age	Node
+76	65	4	Yes, you speak loudly ;)(sentence)
+52	24	6	me(token)
+0	0	0	already(token)
+39	11	6	In fact, I did.(sentence)
+0	0	0	I(token)
+97	93	2	mouth(token)
+19	0	0	User(utterer)
+39	11	6	Did you hear me?(sentence)
+0	0	0	?(token)
+0	0	0	What can we talk about, now?(sentence)
+0	0	0	chatterbots(token)
+0	0	0	fine(token)
+0	0	0	You're welcome.(sentence)
+52	24	6	fact(token)
+0	0	0	What(token)
+43	14	6	Did(token)
+0	0	0	can(token)
+97	90	2	But(token)
+0	0	0	that(token)
+0	0	0	could(token)
+0	0	0	Hi @bot@, how are you?(sentence)
+0	0	0	Yes, I could.(sentence)
+58	7	4	,(token)
+52	24	6	.(token)
+79	65	4	loudly(token)
+0	0	0	You already said that.(sentence)
+0	0	0	thanks(token)
+85	72	4	;)(token)
+6	0	0	how(token)
+34	0	0	'(token)
+0	0	0	any(token)
+0	0	0	speak(token)
+0	0	0	about(token)
+92	84	2	But you don't have a mouth!(sentence)
+97	90	2	don(token)
+0	0	0	now(token)
+0	0	0	Well, we could speak about chatterbots, couldn't we?(sentence)
+34	0	0	!(token)
+0	0	0	I'm fine, thanks you.(sentence)
+97	90	2	a(token)
+0	0	0	m(token)
+34	0	0	have(token)
+0	0	0	it(token)
+0	0	0	@bot@(token)
+43	14	6	hear(token)
+0	0	0	welcome(token)
+0	0	0	talk(token)
+34	0	0	t(token)
+34	0	0	you(token)
+0	0	0	re(token)
+0	0	0	Hi(token)
+0	0	0	we(token)
+0	0	0	are(token)
+0	0	0	Don't you have any idea?(sentence)
+0	0	0	couldn(token)
+0	0	0	I know that, you already said it!(sentence)
+0	0	0	Well(token)
+0	0	0	said(token)
+43	14	6	did(token)
+0	0	0	Don(token)
+9	0	0	Yes(token)
+0	0	0	idea(token)
+0	0	0	know(token)
+43	14	6	In(token)
+0	0	0	You(token)
+User>@cleanstate
+User>@showstate
+oldav	av	age	Node
+76	65	4	Yes, you speak loudly ;)(sentence)
+52	24	6	me(token)
+39	11	6	In fact, I did.(sentence)
+97	93	2	mouth(token)
+39	11	6	Did you hear me?(sentence)
+52	24	6	fact(token)
+43	14	6	Did(token)
+97	90	2	But(token)
+58	7	4	,(token)
+52	24	6	.(token)
+79	65	4	loudly(token)
+85	72	4	;)(token)
+92	84	2	But you don't have a mouth!(sentence)
+97	90	2	don(token)
+97	90	2	a(token)
+43	14	6	hear(token)
+43	14	6	did(token)
+43	14	6	In(token)
+User>
+}}}
+
+
 
 === @log ===
 This command change the way the log is taken, in two manners:
@@ -234,3 +368,23 @@ Hi @bot@, how are you? (sentence): 1 (1)
 States (1)
 	User
 }}}
+
+=== @sentence [on|off] ===
+Set sentence mode on or off.
+When the sentence mode is on, Ector thinks a bit about what you said, and then
+picks one sentence among those he has already heard.
+
+Using `@sentence` without any argument gives the current sentence mode.
+
+=== @generate [on|off] ===
+Set generate mode on or off.
+When the generate mode is on, Ector thinks a bit about what you said, and then
+generates a sentence from one of its activated tokens (usually, a word you used
+in the previous sentence).
+This generation is a contextually statistical one: likelihood of a word after
+one another is taken into account, but activation of the word too.
+
+Activation means concepts that are in the thinking process of Ector (concepts being
+sets of tokens).
+
+Using `@generate` without any argument gives the current generate mode.
