@@ -17,6 +17,9 @@ All that could be useful to ECTOR.
   * NetworkX http://networkx.lanl.gov/ (maybe useful to use this instead of own ConceptNetwork ?)
   * What's new in Python 3.0 ? http://docs.python.org/3.0/whatsnew/3.0.html
 
+== Twitter ==
+  * Twuring http://www.squidoo.com/twuring#
+
 = Freewares =
 
   * Several French NLP programs: http://lia.univ-avignon.fr/fileadmin/documents/Users/Intranet/chercheurs/bechet/download_fred.html
