@@ -26,6 +26,7 @@ All that could be useful to ECTOR.
   * Several French NLP programs: http://lia.univ-avignon.fr/fileadmin/documents/Users/Intranet/chercheurs/bechet/download_fred.html
   * The AsciiDoc page: http://www.methods.co.nz/asciidoc/ (maybe useful to generate some docs, using DocBook tools).
   * Beautiful Soup is a Python HTML/XML parser designed for quick turnaround projects like screen-scraping: http://www.crummy.com/software/BeautifulSoup/ (useful to extract text from generic web pages)
+  * eSpeak: http://espeak.sourceforge.net/ (an open-source text-to-speach software)
 
 = Scientific articles = 
 
