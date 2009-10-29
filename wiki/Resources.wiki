@@ -10,6 +10,8 @@ All that could be useful to ECTOR.
   * Voice recognition and speech synthesis python library (for XP+): http://code.google.com/p/pyspeech/
   * How to Find or Validate an Email Address: http://www.regular-expressions.info/email.html
   * Twisted: http://twistedmatrix.com/trac/ (network protocols)
+  * NLTK Natural Language Tool Kit (Python): http://www.nltk.org/
+
 == MediaWiki ==
   * MediaWiki API http://www.mediawiki.org/wiki/API (if one wants to feed Ector with Wikipedia data)
   * PyWikipediaBot http://pywikipediabot.sourceforge.net/ http://sourceforge.net/projects/pywikipediabot/
